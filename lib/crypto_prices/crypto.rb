@@ -5,8 +5,8 @@ class CryptoPrices::Crypto
   @@all = []
   
   def initialize(name, symbol, open, high, low, last = nil)
-    save 
     
+    save 
   end 
   
   def save
@@ -22,8 +22,17 @@ class CryptoPrices::Crypto
     all
   end
   
+  def self.get_status
+    CryptoPrices::API.get_status
+    all
+  end 
+  
   def self.find_by_name(input)
     all.find{|c| c.name = name}
+  end 
+  
+  def self.find_by_symbol(input)
+    all.find{|c| c.sym = sym}
   end 
     
   
