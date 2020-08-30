@@ -21,7 +21,7 @@ class CryptoPrices::CLI
   end
   
   def validate(input)
-    crypto = CryptoPrices::Crypto.find_by_id(input)
+    crypto = CryptoPrices::Crypto.find_by_name(input)
     crypto ? show_status(crypto) : invalid_input
   end
   
