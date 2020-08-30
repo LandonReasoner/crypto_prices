@@ -4,7 +4,7 @@ class CryptoPrices::Crypto
   
   @@all = []
   
-  def initialize(name, symbol, open, high, low, last = nil)
+  def initialize(attrs)
     
     save 
   end 
@@ -15,7 +15,13 @@ class CryptoPrices::Crypto
   
   def self.all 
     @@all
-  end 
+  end
+  
+  def self.new_from_collection(cryptos)
+    cryptos.each do |attrs|
+        new(attrs)
+    end 
+  end
   
   def self.get_cryptos
     CryptoPrices::API.get_cryptos
