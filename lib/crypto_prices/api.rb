@@ -9,7 +9,7 @@ class CryptoPrices::API
   def self.get_status
     stat = HTTParty.get("https://api.coinbase.com/v2/products/<product-id>/stats")
     prices = stat["open", "high", "low", "last"]
-    CryptoPrices::Crypto.
+    CryptoPrices::Crypto.new_stat_from_collection(prices)
   end
   
 end

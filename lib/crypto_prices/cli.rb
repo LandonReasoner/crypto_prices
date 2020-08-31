@@ -6,6 +6,7 @@ class CryptoPrices::CLI
       list_cryptos
       get_user_input
       validate(@input)
+      show_status
       options 
     end 
     goodbye
