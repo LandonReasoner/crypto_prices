@@ -34,7 +34,7 @@ class CryptoPrices::Crypto
   
   def self.get_status
     CryptoPrices::API.get_status
-    
+    status
   end 
   
   def self.find_by_name(input)
