@@ -29,8 +29,8 @@ class CryptoPrices::Crypto
     end 
   end
   
-  def self.new_status(prices)
-    @status << prices
+  def self.new_status
+    @status << CryptoPrices::API.get_status
   end 
   
   def self.get_cryptos
