@@ -23,6 +23,12 @@ class CryptoPrices::Crypto
     end 
   end
   
+  def self.new_stat_from_collection(prices)
+    prices.each do |attrs|
+      new(attr)
+    end 
+  end
+  
   def self.new_status(prices)
     @status << prices
   end 
