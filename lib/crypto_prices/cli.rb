@@ -32,7 +32,7 @@ class CryptoPrices::CLI
       list_cryptos
   end
   
-  def show_status(crypto)
+  def show_status
     CryptoPrices::Crypto.status
   end
   
