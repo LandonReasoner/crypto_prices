@@ -5,7 +5,7 @@ class CryptoPrices::Crypto
   @@all = []
   
   def initialize(attrs)
-    
+    @status = {}
     save 
   end 
   
@@ -19,9 +19,13 @@ class CryptoPrices::Crypto
   
   def self.new_from_collection(cryptos)
     cryptos.each do |attrs|
-        new(attrs)
+      new(attrs)
     end 
   end
+  
+  def self.new_status(prices)
+    @status << prices
+  end 
   
   def self.get_cryptos
     CryptoPrices::API.get_cryptos
@@ -30,7 +34,7 @@ class CryptoPrices::Crypto
   
   def self.get_status
     CryptoPrices::API.get_status
-    all
+    
   end 
   
   def self.find_by_name(input)

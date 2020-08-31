@@ -32,7 +32,7 @@ class CryptoPrices::CLI
   end
   
   def show_status(crypto)
-    puts "#{crypto.name}"
+    CryptoPrices::Crypto.status
   end
   
   def options 
