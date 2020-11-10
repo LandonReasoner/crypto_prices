@@ -1,13 +1,13 @@
 class CryptoPrices::API 
   
   def self.get_cryptos
-    resp = HTTParty.get("https://api.coinbase.com/v2/currencies")
+    resp = HTTParty.get("GET https://api.coinbase.com/v2/exchange-rates")
     cryptos = resp["name"]
     CryptoPrices::Crypto.new_from_collection(cryptos)
   end
   
   def self.get_status
-    stat = HTTParty.get("https://api.coinbase.com/v2/products/<product-id>/stats")
+    stat = HTTParty.get("GET https://api.coinbase.com/v2/prices/:currency_pair/spot")
     prices = stat["open", "high", "low", "last"]
     CryptoPrices::Crypto.new_stat_from_collection(prices)
   end
