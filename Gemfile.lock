@@ -27,6 +27,7 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 2.0)
   crypto_prices!
+  httparty
   pry
   rake (~> 10.0)
 
