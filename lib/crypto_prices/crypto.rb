@@ -1,6 +1,6 @@
 class CryptoPrices::Crypto 
   
-  attr_accessor :name, :symbol, :open, :high, :low, :last 
+  attr_accessor :name, :symbol, :pair, :spot, :buy, :sell 
   
   @@all = []
   

@@ -13,8 +13,11 @@ class CryptoPrices::CLI
   end
   
   def list_cryptos
-    puts "Select a currency to see prices for the day or you can exit"
-    CryptoPrices::Crypto.all.each.with_index{|ind, c| puts "#{ind}. #{c.name}"}
+    puts "1. Bitcoin  (btc)"
+    puts "2. Litecoin (ltc)"
+    puts "3. Ethereum (eth)"
+    puts "4. Ripple   (xrp)"
+    puts "Please select from the list above and input the pair or symbol you wish to see."
   end 
   
   def get_user_input
