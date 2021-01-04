@@ -1,5 +1,5 @@
 require 'pry'
-require 'HTTParty'
+require 'httparty'
 
 class CryptoPrices::API 
   
