@@ -8,7 +8,7 @@ class CryptoPrices::API
   end 
   
   def self.get_price
-    HTTParty.get("https://api.coinbase.com/v2/prices/btc-usd/spot")
+    HTTParty.get("https://api.pro.coinbase.com/products")
   end
-  
+  binding.pry
 end
