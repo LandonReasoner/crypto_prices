@@ -3,7 +3,7 @@ class CryptoPrices::CLI
   def call 
     puts "Welcome to CryptoPrices!"
     while @input != 'exit'
-      list_cryptos
+      list_pairs
       get_user_input
       validate(@input)
       show_status
