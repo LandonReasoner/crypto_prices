@@ -13,11 +13,7 @@ class CryptoPrices::CLI
   end
   
   def list_cryptos
-    puts "1. Bitcoin  (btc)"
-    puts "2. Litecoin (ltc)"
-    puts "3. Ethereum (eth)"
-    puts "4. Ripple   (xrp)"
-    puts "Please select from the list above and input the pair or symbol you wish to see."
+    CryptoPrices::Crypto.get_pairs
   end 
   
   def get_user_input
@@ -31,7 +27,7 @@ class CryptoPrices::CLI
   
   def invalid_input
     puts "Sorry I didn't understand that"
-    sleep(2)
+    sleep(1)
       list_cryptos
   end
   
