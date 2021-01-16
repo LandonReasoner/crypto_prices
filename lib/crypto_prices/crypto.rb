@@ -10,7 +10,7 @@ class CryptoPrices::Crypto
   end 
   
   def save
-    @@all << self 
+    @@all << CryptoPrices::API.get_pairs 
   end 
   
   def self.all 
@@ -39,7 +39,6 @@ class CryptoPrices::Crypto
   
   def self.get_pairs
     CryptoPrices::API.get_pairs
-    all
   end
   
   def self.get_status
