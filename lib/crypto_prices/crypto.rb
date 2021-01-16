@@ -1,6 +1,6 @@
 class CryptoPrices::Crypto 
   
-  attr_accessor :name, :symbol, :pair, :spot, :buy, :sell 
+  attr_accessor :id , :pair, :open, :high, :low, :last  
   
   @@all = []
   
@@ -37,8 +37,8 @@ class CryptoPrices::Crypto
     @status
   end
   
-  def self.get_cryptos
-    CryptoPrices::API.get_cryptos
+  def self.get_pairs
+    CryptoPrices::API.get_pairs
     all
   end
   
