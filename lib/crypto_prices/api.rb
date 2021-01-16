@@ -8,10 +8,8 @@ class CryptoPrices::API
     parsed(pairs)
   end
   
-  
-    #addresses.map { |address| address.dig(:location, :latitude) }
   def self.parsed(pairs)
-    pairs.map{ |pair| pair.dig([],:id) }
+    pairs.map{ |pair| pair.dig('id') }
   end
   
   binding.pry
