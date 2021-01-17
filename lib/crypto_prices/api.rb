@@ -3,8 +3,9 @@ require 'httparty'
 class CryptoPrices::API 
   
   def self.get_pairs
-    pairs = HTTParty.get("https://api.pro.coinbase.com/products")
-    parsed(pairs)
+    pairs_list = HTTParty.get("https://api.pro.coinbase.com/products")
+    pairs = pairs_list.map{ |pair| pair.dig('id') }
+    CryptoPrices::Pairs.new(id)
   end
   
   def self.parsed(pairs)

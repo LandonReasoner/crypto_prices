@@ -13,7 +13,7 @@ class CryptoPrices::CLI
   end
   
   def list_cryptos
-    CryptoPrices::Crypto.get_pairs
+    CryptoPrices::Pairs.all
   end 
   
   def get_user_input
