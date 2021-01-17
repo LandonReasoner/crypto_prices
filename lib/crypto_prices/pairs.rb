@@ -8,7 +8,8 @@ class CryptoPrices::Pairs
     save 
   end 
   
-  def self.all 
+  def self.all
+     CryptoPrices::API.get_pairs if @@all.empty?
     @@all
   end 
   

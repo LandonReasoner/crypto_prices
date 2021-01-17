@@ -3,6 +3,7 @@ class CryptoPrices::CLI
   def call 
     puts "Welcome to CryptoPrices!"
     while @input != 'exit'
+      get_pairs
       list_cryptos
       get_user_input
       validate(@input)
@@ -12,8 +13,14 @@ class CryptoPrices::CLI
     goodbye
   end
   
+  def get_pairs
+   @pairs = CryptoPrices::Pairs.all
+  end 
+  
   def list_cryptos
-    CryptoPrices::Pairs.all
+    @pairs.each.with_index(1) do |pair, index| 
+      puts "#{index}. #{pair.id}"
+    end 
   end 
   
   def get_user_input
