@@ -16,4 +16,8 @@ class CryptoPrices::Pairs
   def save 
     @@all << self 
   end 
+  
+  def self.find_by_name(input)
+    all.find{|c| c.name == name}
+  end 
 end 

@@ -3,6 +3,7 @@ class CryptoPrices::CLI
   def call 
     puts "Welcome to CryptoPrices!"
     while @input != 'exit'
+    sleep(1)
       get_pairs
       list_cryptos
       get_user_input
@@ -28,8 +29,8 @@ class CryptoPrices::CLI
   end
   
   def validate(input)
-    crypto = CryptoPrices::Crypto.find_by_name(input)
-    crypto ? show_status(crypto) : invalid_input
+    new_pair = CryptoPrices::Pairs.find_by_name(input)
+    new_pair ? show_status(new_pair) : invalid_input
   end
   
   def invalid_input
