@@ -17,7 +17,8 @@ class CryptoPrices::Pairs
     @@all << self 
   end 
   
-  def self.find_by_name(input)
-    all.find{|c| c.name == name}
+  def self.find_by_id(input)
+    id = input
+    all.find{|c| c.id == id}
   end 
 end 

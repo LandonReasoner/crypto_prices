@@ -12,8 +12,8 @@ class CryptoPrices::API
     end
   end
   
-  def self.get_status
-    HTTParty.get("https://api.pro.coinbase.com/products/#{@options[:pair]}/stats")
+  def self.get_status(new_pair)
+    HTTParty.get("https://api.pro.coinbase.com/products/#{new_pair}/stats")
   end 
   
 end
