@@ -13,7 +13,10 @@ class CryptoPrices::API
   end
   
   def self.get_status(input)
-    HTTParty.get("https://api.pro.coinbase.com/products/#{input}/stats")
+    status = HTTParty.get("https://api.pro.coinbase.com/products/#{@input}/stats")
+    
+      CryptoPrices::Status.new(opened, high, low, last)
+    end 
   end 
   
 end
