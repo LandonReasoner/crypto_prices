@@ -8,7 +8,8 @@ class CryptoPrices::CLI
       list_cryptos
       get_user_input
       validate(@input)
-      show_status(new_pair)
+      get_status(@input)
+      show_status(@input)
       options 
     end 
     goodbye
@@ -29,8 +30,7 @@ class CryptoPrices::CLI
   end
   
   def validate(input)
-    new_pair = CryptoPrices::Pairs.find_by_id(input)
-    new_pair ? show_status(new_pair) : invalid_input
+    CryptoPrices::Pairs.find_by_id(@input)
   end
   
   def invalid_input
@@ -39,8 +39,12 @@ class CryptoPrices::CLI
       list_cryptos
   end
   
-  def show_status(new_pair)
-    CryptoPrices::Status.status(new_pair)
+  def get_status(input)
+    @status = CryptoPrices::Status.status(@input)
+  end 
+  
+  def show_status(input)
+    @status
   end
   
   def options 

@@ -18,7 +18,10 @@ class CryptoPrices::Pairs
   end 
   
   def self.find_by_id(input)
-    id = input
-    all.find{|c| c.id == id}
+    if all.find{|c| c.id == input} == true 
+     return input
+    else
+    "invalid input"
+    end
   end 
 end 
