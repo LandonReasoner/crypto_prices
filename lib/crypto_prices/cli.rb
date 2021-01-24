@@ -1,15 +1,13 @@
 class CryptoPrices::CLI 
   
-  def call 
+  def call
+    @input = " "
     puts "Welcome to CryptoPrices!"
     while @input != 'exit'
     sleep(1)
       get_pairs
       list_cryptos
       get_user_input
-      validate(@input)
-      get_status(@input)
-      show_status(@input)
       options 
     end 
     goodbye
@@ -26,11 +24,16 @@ class CryptoPrices::CLI
   end 
   
   def get_user_input
-    @input = gets.strip
+    chosen_pair = gets.strip.to_i
+    if valid_input(chosen_pair, @pairs) 
+      return show_status(chosen_pair)
+    else
+      invalid_input
+    end 
   end
   
-  def validate(input)
-    CryptoPrices::Pairs.find_by_id(@input)
+  def valid_input(input, data)
+    input.to_i <= data.length && input.to_i > 0
   end
   
   def invalid_input
@@ -39,13 +42,16 @@ class CryptoPrices::CLI
       list_cryptos
   end
   
-  def get_status(input)
-    @status = CryptoPrices::Status.status(@input)
-  end 
-  
-  def show_status(input)
-    @status
+  def show_status(chosen_pair)
+    pair = @pairs[chosen_pair - 1]
+    #pair.get_status
+    puts "Here is the 24 hour status of #{pair.id}"
+    get_status(pair)
   end
+  
+  def get_status(pair)
+    CryptoPrices::Status.status(pair)
+  end 
   
   def options 
     puts "Would you like to see the list again or exit"

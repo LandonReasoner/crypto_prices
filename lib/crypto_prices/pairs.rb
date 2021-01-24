@@ -1,10 +1,11 @@
 class CryptoPrices::Pairs
   
-  attr_accessor :id 
+  attr_accessor :id, :status 
   @@all = []
   
   def initialize(id)
     @id = id 
+    @status = {}
     save 
   end 
   
@@ -13,15 +14,15 @@ class CryptoPrices::Pairs
     @@all
   end 
   
-  def save 
-    @@all << self 
+  def self.get_status
+    CryptoPrices::API.get_status if @status.empty?
   end 
   
+  def save 
+    @@all << self 
+  end
+  
   def self.find_by_id(input)
-    if all.find{|c| c.id == input} == true 
-     return input
-    else
-    "invalid input"
-    end
+    all.find{ |c| c.id == @input }
   end 
 end 
