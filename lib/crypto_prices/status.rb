@@ -2,7 +2,7 @@ class CryptoPrices::Status
   
   attr_accessor :opened, :high, :low, :last 
 
-  @@all = {}
+  @@all = []
 
   def initialize(opened, high, low, last)
     @opened = opened

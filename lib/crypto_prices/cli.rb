@@ -1,7 +1,7 @@
 class CryptoPrices::CLI 
   
   def call
-    @input = " "
+    @input = ''
     puts "Welcome to CryptoPrices!"
     while @input != 'exit'
     sleep(1)
@@ -39,7 +39,7 @@ class CryptoPrices::CLI
   def invalid_input
     puts "Sorry I didn't understand that"
     sleep(1)
-      list_cryptos
+      options
   end
   
   def show_status(chosen_pair)
@@ -50,7 +50,7 @@ class CryptoPrices::CLI
   end
   
   def get_status(pair)
-    CryptoPrices::Status.status(pair)
+    CryptoPrices::Pairs.get_status(pair)
   end 
   
   def options 
