@@ -1,6 +1,7 @@
 class CryptoPrices::Status
   
   attr_accessor :opened, :high, :low, :last 
+  attr_reader :input
 
   @@all = []
 
@@ -9,6 +10,7 @@ class CryptoPrices::Status
     @high = high
     @low = low 
     @last = last 
+    @input = input 
     save 
   end 
 

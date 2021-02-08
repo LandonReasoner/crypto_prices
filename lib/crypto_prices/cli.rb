@@ -1,9 +1,9 @@
 class CryptoPrices::CLI 
   
   def call
-    @input = ''
+    @input = ""
+    until @input == "exit"
     puts "Welcome to CryptoPrices!"
-    while @input != 'exit'
     sleep(1)
       get_pairs
       list_cryptos
