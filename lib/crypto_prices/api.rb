@@ -13,7 +13,7 @@ class CryptoPrices::API
   end
   
   def self.get_status(pair)
-    status = HTTParty.get("https://api.pro.coinbase.com/products/#{@input}/stats")
+    status = HTTParty.get("https://api.pro.coinbase.com/products/#{pair.id}/stats")
     status.each do |s|
       opened = status.fetch('open')
       high = status.fetch('high')

@@ -16,6 +16,7 @@ class CryptoPrices::Pairs
   
   def get_status
     CryptoPrices::API.get_status(self) if @status.empty?
+    @status
   end 
   
   def save 

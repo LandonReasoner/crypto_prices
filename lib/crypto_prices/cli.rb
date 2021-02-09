@@ -46,12 +46,7 @@ class CryptoPrices::CLI
     pair = @pairs[chosen_pair - 1]
     puts "Here is the 24 hour status of #{pair.id}"
     pair.get_status
-    #get_status(pair)
   end
-  
-  #def get_status(pair)
-    #CryptoPrices::Pairs.get_status(pair)
-  #end 
   
   def options 
     puts "Would you like to see the list again or exit"
