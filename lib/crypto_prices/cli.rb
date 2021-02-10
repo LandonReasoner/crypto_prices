@@ -1,3 +1,6 @@
+require 'httparty'
+require 'pry'
+
 class CryptoPrices::CLI 
   
   def call
@@ -45,13 +48,15 @@ class CryptoPrices::CLI
   def show_status(chosen_pair)
     pair = @pairs[chosen_pair - 1]
     puts "Here is the 24 hour status of #{pair.id}"
-    pair.get_status
+    status = HTTParty.get("https://api.pro.coinbase.com/products/#{pair.id}/stats")
+    status
+    binding.pry
   end
   
   def options 
     puts "Would you like to see the list again or exit"
     @input = gets.strip
-    end
+  end
     
   def goodbye
     puts "Thank You and Good Luck Trading!!"
