@@ -48,9 +48,8 @@ class CryptoPrices::CLI
   def show_status(chosen_pair)
     pair = @pairs[chosen_pair - 1]
     puts "Here is the 24 hour status of #{pair.id}"
-    status = HTTParty.get("https://api.pro.coinbase.com/products/#{pair.id}/stats")
-    status
-    binding.pry
+    #status = HTTParty.get("https://api.pro.coinbase.com/products/#{pair.id}/stats")
+    CryptoPrices::Pairs.get_status()
   end
   
   def options 

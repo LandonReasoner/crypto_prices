@@ -3,6 +3,12 @@ require 'pry'
 
 class CryptoPrices::API 
   
+  attr_reader :id
+  
+  def initialize(id)
+    @id = id
+  end 
+  
   def self.get_pairs
     pairs_list = HTTParty.get("https://api.pro.coinbase.com/products")
     pairs = pairs_list.map{ |pair| pair.dig('id') }
@@ -12,8 +18,8 @@ class CryptoPrices::API
     end
   end
   
-  def self.get_status(pair)
-    status = HTTParty.get("https://api.pro.coinbase.com/products/#{pair.id}/stats")
+  def self.get_status(id)
+    status = HTTParty.get("https://api.pro.coinbase.com/products/#{@id}/stats")
     status.each do |s|
       opened = status.fetch('open')
       high = status.fetch('high')

@@ -1,25 +1,25 @@
 class CryptoPrices::Status
   
   attr_accessor :opened, :high, :low, :last 
-  attr_reader :input
+  attr_reader :id
 
-  @@all = []
+  @@all = {}
 
   def initialize(opened, high, low, last)
     @opened = opened
     @high = high
     @low = low 
     @last = last 
-    @input = input 
+    @id = id 
     save 
   end 
 
-  def self.status(input)
-   CryptoPrices::API.get_status(@input)
+  def self.status(id)
+   CryptoPrices::API.get_status(@id)
   end 
   
   def self.all
-     CryptoPrices::API.get_status(@input) if @@all.empty?
+    CryptoPrices::API.get_status(@input) if @@all.empty?
     @@all
   end 
   
