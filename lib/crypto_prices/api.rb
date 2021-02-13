@@ -19,7 +19,9 @@ class CryptoPrices::API
   end
   
   def self.get_status(id)
-    status = HTTParty.get("https://api.pro.coinbase.com/products/#{@id}/stats")
+    status_list = HTTParty.get("https://api.pro.coinbase.com/products/#{@id}/stats")
+    status = status_list.map{ |status| status.dig('id', 'stats_24hour') }
+    binding.pry
     status.each do |s|
       opened = status.fetch('open')
       high = status.fetch('high')
